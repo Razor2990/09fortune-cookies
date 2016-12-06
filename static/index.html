@@ -7,14 +7,134 @@
     <link rel="stylesheet" href=".\vendor\sweetalert\dist\sweetalert.css">
     <title>FortuneApp</title>
     <link rel="stylesheet" href="./css/site.css">
+    <!--Importando las librerias de materialize-->
+    <link type="text/css" rel="stylesheet" href="./vendor/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Importando librerias de animations.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 <body>
-    <h1>Pagina asombrosa</h1>
-    <p>Esta es la página más asombrosa que jámas hayas visto en tu <strong> chaka vida </strong></p>
-    <p><button onclick="saludar()"> Push me, yea!!!</button></p>
-    <img src="./img/batman.jpg"> 
-    <script src="./js/site.js"></script> 
-    <!-- Script sweetalert-->
-    <script src=".\vendor\sweetalert\dist\sweetalert.min.js"></script>   
+    
+    <!--Inicio de NavBar -->
+    <header>
+        <nav>
+    <div id="home-sec" class="nav-wrapper #0d47a1 blue darken-4">
+      <a href="#" class="brand-logo">Web Fortune Cookie</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="https://fortune-cookies09-razor2990.c9users.io">Incio</a></li>
+        <li><a href="www.itgustavoamadero.edu.mx">ITGAM</a></li>
+        <li><a href="https://www.facebook.com/ErickRazor2990">Contacto</a></li>
+      </ul>
+    </div>
+       </nav>
+    </header>
+    
+    <div>
+       <div class="parallax-container">
+          <div class="parallax"><img src="./img/fortunecookie.png">
+          </div>
+       </div>
+   </div>
+    
+   
+    <!--Sección de CArrousel -->
+    <!--<div>
+        <div class="parallax-container carousel carousel-slider">
+          <a class="carousel-item parallax " href="#one!"><img src="./img/monstruocome.jpg"></a>
+          <a class="carousel-item parallax" href="#two!"><img src="./img/fookcookies.jpg"></a>
+          <a class="carousel-item parallax" href="#three!"><img src="./img/monstruocome.jpg"></a>
+          <a class="carousel-item parallax" href="#four!"><img src="./img/fookcookies.jpg"></a>
+        </div>
+    </div>-->
+   
+   
+   <!-- Inicio de Card -->
+   
+          <div id="cookie-sec"class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title animated infinite bounce"><center><h2>Welcome to the Fortune Cookies</h2></center></span>
+              <center>
+                <h4>A continuación presiona el botón para leer un papel...</h4>
+                 <button class="btn" onclick="getFortuneFromServer()">Galleta</button>
+                 <script src="./js/site.js"></script>
+              </center>
+            </div>
+            <div>
+            </div>
+          </div>
+          
+          
+          
+    
+   
+   <!-- Fin de Card -->
+    
+    
+    
+    
+   
+    <!-- Importando la libreria Jquery -->
+    <script src="./vendor/jquery/dist/jquery.min.js"></script> 
+    
+    <!-- Inicio de Parallax -->
+   <div>
+       <div class="parallax-container">
+          <div class="parallax"><img src="./img/fookcookies.jpg"></div>
+       </div>
+   </div>
+   <!-- Fin de Parallax -->
+    
+    <!--Inicio de Footer-->
+    <footer class="page-footer #01579b light-blue darken-4">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Contenido</h5>
+                <p class="grey-text text-lighten-4">Nosotros somos desarrolladores del 9° Semestre de Ing. en Tic's del ITGAM, Consulta los links.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#cookie-sec">Galleta de la Fortuna</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://www.itgustavoamadero.edu.mx/?pagina=ITIC´S">Ing. en Tics</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/ErickRazor2990">Desarrolladores Erick y Harold</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://www.itgustavoamadero.edu.mx/">Tecnológico de Gustavo A. Madero</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Copyright Derechos reservados ITGAM
+            <a class="grey-text text-lighten-4 right" href="#!">Hasta Pronto</a>
+            </div>
+          </div>
+        </footer>
+    <!--Fin de Footer-->
+    
+    <script>
+      $(".button-collapse").sideNav();
+    </script>
+    
+    
+    <script>
+        $(document).ready(function(){
+           $('.carousel.carousel-slider').carousel({full_width: true});
+        });
+       
+    </script>
+    
+    <script>
+     $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+    </script>
+     <!-- Script sweetalert-->
+    <script src=".\vendor\sweetalert\dist\sweetalert.min.js"></script>
+       
+    <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="./js/materialize.min.js"></script>
 </body>
 </html>

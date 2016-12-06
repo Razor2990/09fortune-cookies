@@ -1,50 +1,36 @@
-var colors = require("colors");
-colors.setTheme(require("../config/config").colorTheme);
-var fortune = require("./fortune");
+var mongo = require('mongodb');
+var path = require('path'), 
+    fs = require('fs'),
+    fortune = require('./fortune.js');
 
 
-// Agregamos el siguiente código para la conexión
-var MongoClient = require('mongodb').MongoClient
-  , assert = require('assert');
-// Conectando la url para que nos brinde los docmentos
-var url = 'mongodb://localhost:27017/fortuneapp';
+//Creando manejadores
+var _getAuthor = function(req, res){
+    res.end(`Autor: Erick Guerrero Y Harolds Villagomez `);
+};
 
-// Use connect method to connect to the server
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log("Conectando con la Base de Datos de MongoDB");
-  db.close();
-});
-////////////////////// Termino de Conexión de Mongo
-
-
-
-// Creando el handler
-// getfortune
-var _crackTheCookie = function(req, res){
-    console.log("> Cookie crash requested...".info);
+// COnfigurando el manejador
+var _getFortune = function(req, res){
+     console.log(`Se solicita fortuna....`);
+   // Forma no bloqueante
     fortune.getFortune(function(fortunePaperObj){
-        // Preparando encabezados para contestar
-        // Json
-        res.writeHead(200,{
-            "Content-Type" : "application/json"
+        //Configurar el encabezado
+        res.writeHead(200, {
+            "Content-Type":"application/json"
         });
-        // Respondiendo con el objeto
+        console.log(`Contestando:  ${fortunePaperObj}`);
         res.end(fortunePaperObj);
     });
-};
+}
 
-var _getAuthor = function(req, res){
-    console.log("> Se solicito: Autor..".info);
-    res.end("Author: Villagomez y Guerrero");
-};
-// Creando Objeto manejador
-var handlers = {};
 
-// Registrando manejadores
-handlers["/crackthecookie"] = _crackTheCookie;
-handlers["/getAuthor"] = _getAuthor;
-/////////////// Añadiendo el manejador de handler para la BD
 
-// Exportando objeto manejador
-module.exports = handlers;
+//------>Objeto manejador
+var handler = {};
+
+//Registro de manejadores en el objeto manejador
+handler["/getauthor"] = _getAuthor;
+handler["/getacookie"] = _getFortune;
+
+//Necesario exportar el objeto, para que el server lo lea
+module.exports = handler;
